@@ -19,10 +19,10 @@ function changeTime(time, status){
   return (
     <div className="App">
       <Timer active={active} setActive={setActive} time={time} setTime={setTime}/>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={toggle}>Toggle timer</button>
-      <button onClick={() => changeTime(1500, 'work')}>Work</button>
-      <button onClick={() => changeTime(300, 'short')}>Short break</button>
-      <button onClick={() => changeTime(900, 'long')}>Long break</button>
+      <button className="bg-blue-500 ml-2hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={toggle}>Toggle timer</button>
+      <button className="bg-blue-500 ml-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => changeTime(1500, 'work')}>Work</button>
+      <button className="bg-blue-500 ml-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => changeTime(300, 'short')}>Short break</button>
+      <button className="bg-blue-500 ml-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => changeTime(900, 'long')}>Long break</button>
     </div>
   );
 }
