@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Timer from './components/Timer'
 
 function App() {
+const [active, setActive] = useState(false)
+const [time, setTime] = useState({seconds: 1500, status:'work'})
+
+function toggle(){
+  setActive(!active)
+}
+
+function changeTime(time, status){
+  setTime({seconds: time, status: status})
+  setActive(false)
+  console.log(time.status)
+  console.log(time.seconds)
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Timer active={active} setActive={setActive} time={time} setTime={setTime}/>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={toggle}>Toggle timer</button>
+      <button onClick={() => changeTime(1500, 'work')}>Work</button>
+      <button onClick={() => changeTime(300, 'short')}>Short break</button>
+      <button onClick={() => changeTime(900, 'long')}>Long break</button>
     </div>
   );
 }
